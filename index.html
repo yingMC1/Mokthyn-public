@@ -325,6 +325,15 @@
       box-shadow: 0 8px 22px rgba(233, 69, 96, 0.12);
     }
 
+    /* 稳定版左侧绿色边框，与预览版区分（但悬停时仍统一粉色） */
+    .version-item.stable-item {
+      border-left-color: var(--green);
+    }
+
+    .version-item.stable-item:hover {
+      border-left-color: var(--primary);
+    }
+
     .version-info { text-align: left; flex: 1; min-width: 0; }
 
     .version-name {
@@ -395,6 +404,9 @@
 
     .version-download:active { transform: translateY(0); }
     .version-download svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* 稳定版下载按钮可以使用绿色渐变，但保持风格；这里保留红色渐变，但为了区分可微调，但风格统一仍用主色 */
+    /* 保持主色，整体和谐，与预览版一致 */
 
     /* ============ Empty Hint ============ */
     .empty-hint {
@@ -726,7 +738,7 @@
       </div>
     </div>
 
-    <!-- ===== Stable ===== -->
+    <!-- ===== Stable（正式版）已发布 ===== -->
     <div class="version-section">
       <div class="section-label">
         <span data-zh="✅ 正式版" data-en="✅ Stable">✅ 正式版</span>
@@ -734,9 +746,21 @@
       </div>
 
       <div class="version-list">
-        <div class="empty-hint" data-zh="正式版尚未发布，敬请期待" data-en="Stable release not yet available. Stay tuned.">
-          正式版尚未发布，敬请期待
+        <!-- 正式版 v1.0.0 版本项，左侧绿色边框，与预览版呼应 -->
+        <div class="version-item stable-item">
+          <div class="version-info">
+            <div class="version-name">
+              <span class="dot stable"></span>v1.0.0
+              <span class="version-tag stable-tag" data-zh="正式" data-en="Stable">正式</span>
+            </div>
+            <div class="version-meta" data-zh="正式发布 · 稳定版本" data-en="Stable release · Production ready">正式发布 · 稳定版本</div>
+          </div>
+          <a class="version-download" href="./download/Mokthyn-1.0.0.exe" download>
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+            <span data-zh="下载" data-en="Download">下载</span>
+          </a>
         </div>
+        <!-- 可根据需要添加更多正式版版本，例如 v1.0.1 等，保持样式一致 -->
       </div>
     </div>
 
