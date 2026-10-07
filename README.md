@@ -6,7 +6,6 @@
 
 1. [点击这里](https://mokthyn-3xya338.maozi.io/)
 2. [点击这里](https://fancy-unit-740c.ying110189.workers.dev)
-3. [点击这里](mokthyn.dpdns.org)
 
 ### 简介
 
