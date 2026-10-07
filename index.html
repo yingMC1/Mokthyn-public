@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>莫克廷 Mokthyn - 下载</title>
+  <title>Mokthyn - Download</title>
   <style>
-    /* ============ 全局 ============ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ============ Global ============ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --primary: #e94560;
@@ -33,7 +29,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
       background: var(--bg);
       background-image:
         radial-gradient(circle at 20% 0%, rgba(233, 69, 96, 0.04) 0%, transparent 40%),
@@ -48,7 +44,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ============ 主卡片 ============ */
+    /* ============ Main Card ============ */
     .container {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -68,12 +64,47 @@
     .container::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 4px;
       background: linear-gradient(90deg, var(--primary), #f5a623, var(--green));
       opacity: 0.9;
+    }
+
+    /* ============ Language Switch ============ */
+    .lang-switch {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: inline-flex;
+      background: #f7fafc;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px;
+      z-index: 10;
+    }
+
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-switch button.active {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(233, 69, 96, 0.25);
+    }
+
+    .lang-switch button:not(.active):hover {
+      color: var(--text-main);
     }
 
     /* ============ Logo ============ */
@@ -98,7 +129,6 @@
       font-weight: 500;
     }
 
-    /* ============ 副标题 ============ */
     .subtitle {
       color: var(--text-sub);
       font-size: 0.95rem;
@@ -106,7 +136,7 @@
       line-height: 1.9;
     }
 
-    /* ============ 特色标签 ============ */
+    /* ============ Feature Tags ============ */
     .features {
       display: flex;
       gap: 10px;
@@ -135,7 +165,7 @@
       transform: translateY(-1px);
     }
 
-    /* ============ 信息框 ============ */
+    /* ============ Info Box ============ */
     .info-box {
       background: #f7fafc;
       border: 1px solid var(--border);
@@ -151,7 +181,7 @@
     .info-box strong {
       color: var(--text-main);
       display: inline-block;
-      min-width: 72px;
+      min-width: 90px;
       font-weight: 600;
     }
 
@@ -160,11 +190,8 @@
       font-weight: 600;
     }
 
-    /* ============ 版本分类 ============ */
-    .version-section {
-      margin-bottom: 30px;
-      text-align: left;
-    }
+    /* ============ Version Section ============ */
+    .version-section { margin-bottom: 30px; text-align: left; }
 
     .section-label {
       display: flex;
@@ -200,12 +227,8 @@
       border: 1px solid var(--green-border);
     }
 
-    /* ============ 版本列表 ============ */
-    .version-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    /* ============ Version List ============ */
+    .version-list { display: flex; flex-direction: column; gap: 10px; }
 
     .version-item {
       display: flex;
@@ -229,11 +252,7 @@
       box-shadow: 0 4px 14px rgba(233, 69, 96, 0.08);
     }
 
-    .version-info {
-      text-align: left;
-      flex: 1;
-      min-width: 0;
-    }
+    .version-info { text-align: left; flex: 1; min-width: 0; }
 
     .version-name {
       font-size: 0.94rem;
@@ -247,8 +266,7 @@
     }
 
     .version-name .dot {
-      width: 7px;
-      height: 7px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--orange);
       display: inline-block;
@@ -269,22 +287,12 @@
       text-transform: uppercase;
     }
 
-    .version-tag.preview-tag {
-      background: var(--orange-light);
-      color: var(--orange);
-    }
+    .version-tag.preview-tag { background: var(--orange-light); color: var(--orange); }
+    .version-tag.stable-tag { background: var(--green-light); color: var(--green); }
 
-    .version-tag.stable-tag {
-      background: var(--green-light);
-      color: var(--green);
-    }
+    .version-meta { font-size: 0.76rem; color: var(--text-muted); }
 
-    .version-meta {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    /* ============ 下载按钮 ============ */
+    /* ============ Download Button ============ */
     .version-download {
       display: inline-flex;
       align-items: center;
@@ -312,17 +320,10 @@
         0 0 0 3px rgba(233, 69, 96, 0.1);
     }
 
-    .version-download:active {
-      transform: translateY(0);
-    }
+    .version-download:active { transform: translateY(0); }
+    .version-download svg { width: 14px; height: 14px; fill: currentColor; }
 
-    .version-download svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
-
-    /* ============ 空提示 ============ */
+    /* ============ Empty Hint ============ */
     .empty-hint {
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -333,7 +334,7 @@
       text-align: center;
     }
 
-    /* ============ 源码按钮 ============ */
+    /* ============ Source Button ============ */
     .source-btn {
       display: inline-flex;
       align-items: center;
@@ -360,15 +361,10 @@
       box-shadow: 0 4px 12px rgba(233, 69, 96, 0.08);
     }
 
-    .source-btn svg {
-      transition: transform 0.3s;
-    }
+    .source-btn svg { transition: transform 0.3s; }
+    .source-btn:hover svg { transform: rotate(-8deg) scale(1.1); }
 
-    .source-btn:hover svg {
-      transform: rotate(-8deg) scale(1.1);
-    }
-
-    /* ============ 折叠面板 ============ */
+    /* ============ Collapse Panel ============ */
     .collapse-section {
       margin-top: 14px;
       border: 1px solid var(--border);
@@ -395,9 +391,7 @@
       background: #f7fafc;
     }
 
-    .collapse-header:hover {
-      background: var(--primary-light);
-    }
+    .collapse-header:hover { background: var(--primary-light); }
 
     .collapse-header .title {
       display: flex;
@@ -413,8 +407,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 22px;
-      height: 22px;
+      width: 22px; height: 22px;
       border-radius: 50%;
       background: #fff;
       border: 1px solid var(--border);
@@ -444,7 +437,7 @@
       border-top: 1px solid var(--border-light);
     }
 
-    /* ============ 表单样式 ============ */
+    /* ============ Form ============ */
     .issue-form {
       display: flex;
       flex-direction: column;
@@ -460,10 +453,7 @@
       text-align: left;
     }
 
-    .contribute-desc strong {
-      color: var(--primary);
-      font-weight: 700;
-    }
+    .contribute-desc strong { color: var(--primary); font-weight: 700; }
 
     .issue-form input,
     .issue-form textarea {
@@ -480,15 +470,10 @@
     }
 
     .issue-form input::placeholder,
-    .issue-form textarea::placeholder {
-      color: var(--text-muted);
-    }
+    .issue-form textarea::placeholder { color: var(--text-muted); }
 
     .issue-form input:hover,
-    .issue-form textarea:hover {
-      border-color: #cbd5e0;
-      background: #fff;
-    }
+    .issue-form textarea:hover { border-color: #cbd5e0; background: #fff; }
 
     .issue-form input:focus,
     .issue-form textarea:focus {
@@ -497,13 +482,9 @@
       box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
     }
 
-    .issue-form textarea {
-      resize: vertical;
-      min-height: 100px;
-      line-height: 1.6;
-    }
+    .issue-form textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
 
-    /* ============ 文件上传 ============ */
+    /* ============ File Upload ============ */
     .file-upload {
       position: relative;
       display: flex;
@@ -531,29 +512,13 @@
       inset: 0;
       opacity: 0;
       cursor: pointer;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
     }
 
-    .file-upload .icon {
-      font-size: 1.6rem;
-      transition: transform 0.25s;
-    }
-
-    .file-upload:hover .icon {
-      transform: scale(1.15) rotate(-5deg);
-    }
-
-    .file-upload .label {
-      font-size: 0.85rem;
-      color: var(--text-sub);
-      font-weight: 600;
-    }
-
-    .file-upload .hint {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
+    .file-upload .icon { font-size: 1.6rem; transition: transform 0.25s; }
+    .file-upload:hover .icon { transform: scale(1.15) rotate(-5deg); }
+    .file-upload .label { font-size: 0.85rem; color: var(--text-sub); font-weight: 600; }
+    .file-upload .hint { font-size: 0.72rem; color: var(--text-muted); }
 
     .file-name {
       font-size: 0.78rem;
@@ -563,7 +528,7 @@
       word-break: break-all;
     }
 
-    /* ============ 提交按钮 ============ */
+    /* ============ Submit Button ============ */
     .issue-submit {
       display: inline-flex;
       align-items: center;
@@ -590,11 +555,9 @@
         0 0 0 3px rgba(233, 69, 96, 0.1);
     }
 
-    .issue-submit:active {
-      transform: translateY(0);
-    }
+    .issue-submit:active { transform: translateY(0); }
 
-    /* ============ 页脚 ============ */
+    /* ============ Footer ============ */
     .footer {
       margin-top: 32px;
       padding-top: 24px;
@@ -604,88 +567,57 @@
       line-height: 2;
     }
 
-    .footer a {
-      color: var(--text-sub);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer a { color: var(--text-sub); text-decoration: none; transition: color 0.2s; }
+    .footer a:hover { color: var(--primary); }
+    .footer .author { color: var(--text-sub); font-weight: 600; }
 
-    .footer a:hover {
-      color: var(--primary);
-    }
-
-    .footer .author {
-      color: var(--text-sub);
-      font-weight: 600;
-    }
-
-    /* ============ 响应式 ============ */
+    /* ============ Responsive ============ */
     @media (max-width: 520px) {
-      .container {
-        padding: 36px 24px;
-        border-radius: 18px;
-      }
-
-      .logo {
-        font-size: 2.2rem;
-      }
-
-      .logo-en {
-        letter-spacing: 6px;
-        font-size: 0.75rem;
-      }
-
-      .version-item {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
-
-      .version-download {
-        width: 100%;
-        padding: 11px 20px;
-      }
-
-      .section-label {
-        font-size: 0.86rem;
-      }
-
-      .collapse-header {
-        padding: 14px 16px;
-      }
-
-      .collapse-section.open .collapse-body {
-        padding: 16px;
-      }
+      .container { padding: 36px 24px; border-radius: 18px; }
+      .logo { font-size: 2.2rem; }
+      .logo-en { letter-spacing: 6px; font-size: 0.75rem; }
+      .version-item { flex-direction: column; align-items: stretch; gap: 10px; }
+      .version-download { width: 100%; padding: 11px 20px; }
+      .section-label { font-size: 0.86rem; }
+      .collapse-header { padding: 14px 16px; }
+      .collapse-section.open .collapse-body { padding: 16px; }
+      .lang-switch { top: 12px; right: 12px; }
+      .lang-switch button { padding: 5px 10px; font-size: 0.68rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo">莫克廷</div>
-    <div class="logo-en">Mokthyn</div>
+    <!-- Language Switch -->
+    <div class="lang-switch">
+      <button id="btn-zh" class="active" onclick="setLang('zh')">中文</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
 
-    <p class="subtitle">
-      逃离雅科夫模式 · 搜、打、撤<br>
-      基于 C++ &amp; EGE 图形库打造
+    <div class="logo" data-zh="莫克廷" data-en="MOKTHYN">莫克廷</div>
+    <div class="logo-en" data-zh="MOKTHYN" data-en="MOKTHYN">MOKTHYN</div>
+
+    <p class="subtitle" data-zh="逃离雅科夫模式 · 搜、打、撤<br>基于 C++ &amp; EGE 图形库打造"
+       data-en="Escape Yakov Mode · Search, Fight, Extract<br>Built with C++ &amp; EGE Graphics Library">
+      逃离雅科夫模式 · 搜、打、撤<br>基于 C++ &amp; EGE 图形库打造
     </p>
 
     <div class="features">
-      <span class="feature-tag">搜打撤</span>
-      <span class="feature-tag">免安装</span>
-      <span class="feature-tag">轻量绿色</span>
+      <span class="feature-tag" data-zh="搜打撤" data-en="Search &amp; Extract">搜打撤</span>
+      <span class="feature-tag" data-zh="免安装" data-en="Portable">免安装</span>
+      <span class="feature-tag" data-zh="轻量绿色" data-en="Lightweight">轻量绿色</span>
     </div>
 
     <div class="info-box">
-      <strong>平台：</strong>Windows (x64)<br>
-      <strong>依赖：</strong><span class="highlight">无需额外依赖，绿色免安装</span>
+      <strong data-zh="平台：" data-en="Platform:">平台：</strong><span data-zh="Windows (x64)" data-en="Windows (x64)">Windows (x64)</span><br>
+      <strong data-zh="依赖：" data-en="Dependency:">依赖：</strong><span class="highlight" data-zh="无需额外依赖，绿色免安装" data-en="No extra dependencies, portable &amp; green">无需额外依赖，绿色免安装</span>
     </div>
 
-    <!-- ===== 预览版 ===== -->
+    <!-- ===== Preview ===== -->
     <div class="version-section">
       <div class="section-label">
-        <span>🧪 预览版</span>
-        <span class="badge badge-preview">Preview</span>
+        <span data-zh="🧪 预览版" data-en="🧪 Preview">🧪 预览版</span>
+        <span class="badge badge-preview" data-zh="预览" data-en="Preview">预览</span>
       </div>
 
       <div class="version-list">
@@ -693,101 +625,133 @@
           <div class="version-info">
             <div class="version-name">
               <span class="dot"></span>v0.0.1
-              <span class="version-tag preview-tag">预览</span>
+              <span class="version-tag preview-tag" data-zh="预览" data-en="Preview">预览</span>
             </div>
-            <div class="version-meta">最新构建 · 早期测试版</div>
+            <div class="version-meta" data-zh="最新构建 · 早期测试版" data-en="Latest build · Early test version">最新构建 · 早期测试版</div>
           </div>
           <a class="version-download" href="./download/Mokthyn-preview-0.0.1.exe" download>
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
-            下载
+            <span data-zh="下载" data-en="Download">下载</span>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- ===== 正式版 ===== -->
+    <!-- ===== Stable ===== -->
     <div class="version-section">
       <div class="section-label">
-        <span>✅ 正式版</span>
-        <span class="badge badge-stable">Stable</span>
+        <span data-zh="✅ 正式版" data-en="✅ Stable">✅ 正式版</span>
+        <span class="badge badge-stable" data-zh="正式" data-en="Stable">正式</span>
       </div>
 
       <div class="version-list">
-        <div class="empty-hint">
+        <div class="empty-hint" data-zh="正式版尚未发布，敬请期待" data-en="Stable release not yet available. Stay tuned.">
           正式版尚未发布，敬请期待
         </div>
       </div>
     </div>
 
-    <!-- 源码按钮 -->
+    <!-- Source -->
     <a class="source-btn" href="https://github.com/yingMC1/Mokthyn-public" target="_blank" rel="noopener">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.4.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 016 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.24 0 4.63-2.8 5.66-5.48 5.96.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0024 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-      查看源代码·给个⭐呗！
+      <span data-zh="查看源代码" data-en="View Source Code">查看源代码</span>
     </a>
 
-    <!-- ---- 折叠：提交 Issue ---- -->
+    <!-- ===== Collapse: Submit Issue ===== -->
     <div class="collapse-section" id="issuePanel">
       <div class="collapse-header" onclick="togglePanel('issuePanel')">
-        <span class="title">💬 提交 Issue / 反馈</span>
+        <span class="title" data-zh="💬 提交 Issue / 反馈" data-en="💬 Submit Issue / Feedback">💬 提交 Issue / 反馈</span>
         <span class="arrow">▼</span>
       </div>
       <div class="collapse-body">
         <form class="issue-form" action="https://formspree.io/f/xwlvvbqv" method="POST">
-          <input type="text" name="title" placeholder="标题（简要描述问题或建议）" required />
-          <textarea name="body" placeholder="详细描述你遇到的问题、复现步骤或建议..." required></textarea>
-          <button type="submit" class="issue-submit">提交反馈</button>
+          <input type="text" name="title" data-zh-placeholder="标题（简要描述问题或建议）" data-en-placeholder="Title (brief description)" placeholder="标题（简要描述问题或建议）" required />
+          <textarea name="body" data-zh-placeholder="详细描述你遇到的问题、复现步骤或建议..." data-en-placeholder="Describe the issue, steps to reproduce, or suggestions..." placeholder="详细描述你遇到的问题、复现步骤或建议..." required></textarea>
+          <button type="submit" class="issue-submit" data-zh="提交反馈" data-en="Submit Feedback">提交反馈</button>
         </form>
       </div>
     </div>
 
-    <!-- ---- 折叠：提交贡献文献 ---- -->
+    <!-- ===== Collapse: Contribute ===== -->
     <div class="collapse-section" id="contributePanel">
       <div class="collapse-header" onclick="togglePanel('contributePanel')">
-        <span class="title">📄 提交贡献文献</span>
+        <span class="title" data-zh="📄 提交贡献文献" data-en="📄 Contribute Documentation">📄 提交贡献文献</span>
         <span class="arrow">▼</span>
       </div>
       <div class="collapse-body">
-        <p class="contribute-desc">
-          要求：玩过 Mokthyn，写过与 <strong>game.h</strong> 功能不同的 <strong>.h</strong> 文件。<br>
-          上传你的 .h 文件，并附上简要说明，作者会尽快审核。
+        <p class="contribute-desc" data-zh="要求：玩过 Mokthyn，写过与 <strong>game.h</strong> 功能不同的 <strong>.h</strong> 文件。<br>上传你的 .h 文件，并附上简要说明，作者会尽快审核。"
+           data-en="Requirements: You must have played Mokthyn, and written a <strong>.h</strong> file with different functionality from <strong>game.h</strong>.<br>Upload your .h file with a brief description. The author will review it soon.">
+          要求：玩过 Mokthyn，写过与 <strong>game.h</strong> 功能不同的 <strong>.h</strong> 文件。<br>上传你的 .h 文件，并附上简要说明，作者会尽快审核。
         </p>
         <form class="issue-form" action="https://formspree.io/f/xwlvvbqv" method="POST" enctype="multipart/form-data">
-          <input type="text" name="author" placeholder="你的名字 / GitHub 用户名" required />
-          <input type="text" name="title" placeholder="文献标题（例如：新武器系统.h）" required />
-          <textarea name="description" placeholder="简要说明这个 .h 文件的功能和用途..." required></textarea>
+          <input type="text" name="author" data-zh-placeholder="你的名字 / GitHub 用户名" data-en-placeholder="Your name / GitHub username" placeholder="你的名字 / GitHub 用户名" required />
+          <input type="text" name="title" data-zh-placeholder="文献标题（例如：新武器系统.h）" data-en-placeholder="Documentation title (e.g., NewWeaponSystem.h)" placeholder="文献标题（例如：新武器系统.h）" required />
+          <textarea name="description" data-zh-placeholder="简要说明这个 .h 文件的功能和用途..." data-en-placeholder="Briefly describe the function and purpose of this .h file..." placeholder="简要说明这个 .h 文件的功能和用途..." required></textarea>
 
           <label class="file-upload">
             <input type="file" name="attachment" accept=".h,.hpp,.zip,.rar" required onchange="showFileName(this)" />
             <span class="icon">📎</span>
-            <span class="label">点击上传 .h 文件</span>
-            <span class="hint">支持 .h / .hpp / .zip / .rar，单个文件不超过 10MB</span>
+            <span class="label" data-zh="点击上传 .h 文件" data-en="Click to upload .h file">点击上传 .h 文件</span>
+            <span class="hint" data-zh="支持 .h / .hpp / .zip / .rar，单个文件不超过 10MB" data-en="Supports .h / .hpp / .zip / .rar, max 10MB">支持 .h / .hpp / .zip / .rar，单个文件不超过 10MB</span>
             <span class="file-name" id="fileName"></span>
           </label>
 
-          <button type="submit" class="issue-submit">提交文献</button>
+          <button type="submit" class="issue-submit" data-zh="提交文献" data-en="Submit Documentation">提交文献</button>
         </form>
       </div>
     </div>
 
     <div class="footer">
-      <span class="author">开发者：yingMC1 · yingMC-1</span><br>
-      <a href="https://github.com/yingMC1/Mokthyn-public/blob/main/README.md" target="_blank">贡献指南</a> ·
+      <span class="author" data-zh="开发者：yingMC1 · yingMC-1" data-en="Developers: yingMC1 · yingMC-1">开发者：yingMC1 · yingMC-1</span><br>
+      <a href="https://github.com/yingMC1/Mokthyn-public/blob/main/README.md" target="_blank" data-zh="贡献指南" data-en="Contribution Guide">贡献指南</a> ·
       <a href="mailto:Ying110189@outlook.com">Ying110189@outlook.com</a>
     </div>
   </div>
 
   <script>
-    // 折叠面板切换
+    // ===== 语言切换 =====
+    function setLang(lang) {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+      // 切换按钮高亮
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      // 切换所有带 data-zh / data-en 的文本
+      document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+        const html = el.getAttribute('data-' + lang);
+        if (html) el.innerHTML = html;
+      });
+
+      // 切换 placeholder
+      document.querySelectorAll('[data-zh-placeholder][data-en-placeholder]').forEach(el => {
+        const ph = el.getAttribute('data-' + lang + '-placeholder');
+        if (ph) el.placeholder = ph;
+      });
+
+      // 记住语言选择
+      try { localStorage.setItem('mokthyn-lang', lang); } catch (e) {}
+    }
+
+    // 页面加载时读取上次选择
+    (function initLang() {
+      let saved = 'zh';
+      try { saved = localStorage.getItem('mokthyn-lang') || 'zh'; } catch (e) {}
+      setLang(saved);
+    })();
+
+    // ===== 折叠面板 =====
     function togglePanel(id) {
       const panel = document.getElementById(id);
       panel.classList.toggle('open');
     }
 
-    // 文件名显示
+    // ===== 文件名显示 =====
     function showFileName(input) {
       const nameEl = document.getElementById('fileName');
+      const lang = document.documentElement.lang === 'en' ? 'en' : 'zh';
       if (input.files && input.files.length > 0) {
-        nameEl.textContent = '已选择：' + input.files[0].name;
+        nameEl.textContent = (lang === 'en' ? 'Selected: ' : '已选择：') + input.files[0].name;
       } else {
         nameEl.textContent = '';
       }
