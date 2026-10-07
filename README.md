@@ -1,11 +1,12 @@
 # Mokthyn-public
 
-[Mokthyn](https://github.com/yingMC1/Mokthyn) 的公开仓库（[Mokthyn](https://github.com/yingMC1/Mokthyn)是私自仓库）
+[Mokthyn](https://github.com/yingMC1/Mokthyn) 的公开仓库（[Mokthyn](https://github.com/yingMC1/Mokthyn)是私自仓库）。
 
 ### 下载网
 
-1. [点击这里](https://mokthyn-3xya338.maozi.io/)
-2. [点击这里](https://fancy-unit-740c.ying110189.workers.dev)
+1. [点击这里](https://mokthyn-3xya338.maozi.io/)。
+2. [点击这里](https://fancy-unit-740c.ying110189.workers.dev)（更新慢）。
+3. [点击这里](http://mokthyn.dpdns.org/)（更新慢）
 
 ### 简介
 
@@ -31,7 +32,7 @@
 
 ## 开发者
 
-- yingMC1，（[luogu账号](https://www.luogu.com.cn/user/1488732)）
+- yingMC1，（[luogu账号](https://www.luogu.com.cn/user/1488732)）。
 - yingMC-1（yingMC1的小号，应为 vscode 上绑的是yingMC-1来传代码）。
 
 ## 后言
