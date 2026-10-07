@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>莫克廷 Mokthyn - 下载</title>
+  <style>
+    /* ============ 全局 ============ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #e94560;
+      --primary-dark: #c62a46;
+      --primary-light: #fff5f5;
+      --primary-border: #fed7d7;
+      --text-main: #1a202c;
+      --text-sub: #4a5568;
+      --text-muted: #a0aec0;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --border-light: #edf2f7;
+      --green: #38a169;
+      --green-light: #f0fff4;
+      --green-border: #c6f6d5;
+      --orange: #dd6b20;
+      --orange-light: #fffaf0;
+      --orange-border: #feebc8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 0%, rgba(233, 69, 96, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 80% 100%, rgba(56, 161, 105, 0.04) 0%, transparent 40%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ============ 主卡片 ============ */
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 52px 44px;
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.02),
+        0 8px 24px rgba(0, 0, 0, 0.04),
+        0 24px 60px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), #f5a623, var(--green));
+      opacity: 0.9;
+    }
+
+    /* ============ Logo ============ */
+    .logo {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #e94560 0%, #f5a623 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .logo-en {
+      font-size: 0.82rem;
+      letter-spacing: 8px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 26px;
+      font-weight: 500;
+    }
+
+    /* ============ 副标题 ============ */
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      line-height: 1.9;
+    }
+
+    /* ============ 特色标签 ============ */
+    .features {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .feature-tag {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 0.76rem;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .feature-tag:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* ============ 信息框 ============ */
+    .info-box {
+      background: #f7fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 30px;
+      text-align: left;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 2.1;
+    }
+
+    .info-box strong {
+      color: var(--text-main);
+      display: inline-block;
+      min-width: 72px;
+      font-weight: 600;
+    }
+
+    .info-box .highlight {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ============ 版本分类 ============ */
+    .version-section {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
+      letter-spacing: 0.3px;
+    }
+
+    .section-label .badge {
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .badge-preview {
+      background: var(--orange-light);
+      color: var(--orange);
+      border: 1px solid var(--orange-border);
+    }
+
+    .badge-stable {
+      background: var(--green-light);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+
+    /* ============ 版本列表 ============ */
+    .version-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .version-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: #f7fafc;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 12px;
+      padding: 14px 18px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .version-item:hover {
+      border-color: var(--primary);
+      border-left-color: var(--primary);
+      background: #fff;
+      transform: translateX(4px);
+      box-shadow: 0 4px 14px rgba(233, 69, 96, 0.08);
+    }
+
+    .version-info {
+      text-align: left;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .version-name {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .version-name .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(221, 107, 32, 0.15);
+    }
+
+    .version-name .dot.stable {
+      background: var(--green);
+      box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.15);
+    }
+
+    .version-tag {
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .version-tag.preview-tag {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .version-tag.stable-tag {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .version-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ============ 下载按钮 ============ */
+    .version-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.22);
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+
+    .version-download:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 6px 16px rgba(233, 69, 96, 0.35),
+        0 0 0 3px rgba(233, 69, 96, 0.1);
+    }
+
+    .version-download:active {
+      transform: translateY(0);
+    }
+
+    .version-download svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* ============ 空提示 ============ */
+    .empty-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 16px 18px;
+      background: #f7fafc;
+      border: 1px dashed #cbd5e0;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    /* ============ 源码按钮 ============ */
+    .source-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 24px;
+      background: #fff;
+      color: var(--text-sub);
+      font-size: 0.92rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all 0.22s;
+      margin-bottom: 14px;
+    }
+
+    .source-btn:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.08);
+    }
+
+    .source-btn svg {
+      transition: transform 0.3s;
+    }
+
+    .source-btn:hover svg {
+      transform: rotate(-8deg) scale(1.1);
+    }
+
+    /* ============ 折叠面板 ============ */
+    .collapse-section {
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.25s;
+      background: #fff;
+    }
+
+    .collapse-section:hover {
+      border-color: #cbd5e0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .collapse-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+      background: #f7fafc;
+    }
+
+    .collapse-header:hover {
+      background: var(--primary-light);
+    }
+
+    .collapse-header .title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.3px;
+    }
+
+    .collapse-header .arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+      font-size: 0.7rem;
+      transition: transform 0.3s, background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .collapse-section.open .collapse-header .arrow {
+      transform: rotate(180deg);
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .collapse-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s;
+      padding: 0 20px;
+    }
+
+    .collapse-section.open .collapse-body {
+      max-height: 1200px;
+      padding: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* ============ 表单样式 ============ */
+    .issue-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .contribute-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    .contribute-desc strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .issue-form input,
+    .issue-form textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: #f7fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.22s;
+    }
+
+    .issue-form input::placeholder,
+    .issue-form textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .issue-form input:hover,
+    .issue-form textarea:hover {
+      border-color: #cbd5e0;
+      background: #fff;
+    }
+
+    .issue-form input:focus,
+    .issue-form textarea:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+    }
+
+    .issue-form textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    /* ============ 文件上传 ============ */
+    .file-upload {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 24px 16px;
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      border: 2px dashed #cbd5e0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-align: center;
+    }
+
+    .file-upload:hover {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
+      transform: translateY(-1px);
+    }
+
+    .file-upload input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .file-upload .icon {
+      font-size: 1.6rem;
+      transition: transform 0.25s;
+    }
+
+    .file-upload:hover .icon {
+      transform: scale(1.15) rotate(-5deg);
+    }
+
+    .file-upload .label {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    .file-upload .hint {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .file-name {
+      font-size: 0.78rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 4px;
+      word-break: break-all;
+    }
+
+    /* ============ 提交按钮 ============ */
+    .issue-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.22s;
+      box-shadow: 0 4px 14px rgba(233, 69, 96, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .issue-submit:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 20px rgba(233, 69, 96, 0.35),
+        0 0 0 3px rgba(233, 69, 96, 0.1);
+    }
+
+    .issue-submit:active {
+      transform: translateY(0);
+    }
+
+    /* ============ 页脚 ============ */
+    .footer {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    .footer a {
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+    }
+
+    .footer .author {
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    /* ============ 响应式 ============ */
+    @media (max-width: 520px) {
+      .container {
+        padding: 36px 24px;
+        border-radius: 18px;
+      }
+
+      .logo {
+        font-size: 2.2rem;
+      }
+
+      .logo-en {
+        letter-spacing: 6px;
+        font-size: 0.75rem;
+      }
+
+      .version-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .version-download {
+        width: 100%;
+        padding: 11px 20px;
+      }
+
+      .section-label {
+        font-size: 0.86rem;
+      }
+
+      .collapse-header {
+        padding: 14px 16px;
+      }
+
+      .collapse-section.open .collapse-body {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">莫克廷</div>
+    <div class="logo-en">Mokthyn</div>
+
+    <p class="subtitle">
+      逃离雅科夫模式 · 搜、打、撤<br>
+      基于 C++ &amp; EGE 图形库打造
+    </p>
+
+    <div class="features">
+      <span class="feature-tag">搜打撤</span>
+      <span class="feature-tag">免安装</span>
+      <span class="feature-tag">轻量绿色</span>
+    </div>
+
+    <div class="info-box">
+      <strong>平台：</strong>Windows (x64)<br>
+      <strong>依赖：</strong><span class="highlight">无需额外依赖，绿色免安装</span>
+    </div>
+
+    <!-- ===== 预览版 ===== -->
+    <div class="version-section">
+      <div class="section-label">
+        <span>🧪 预览版</span>
+        <span class="badge badge-preview">Preview</span>
+      </div>
+
+      <div class="version-list">
+        <div class="version-item">
+          <div class="version-info">
+            <div class="version-name">
+              <span class="dot"></span>v0.0.1
+              <span class="version-tag preview-tag">预览</span>
+            </div>
+            <div class="version-meta">最新构建 · 早期测试版</div>
+          </div>
+          <a class="version-download" href="./download/Mokthyn-preview-0.0.1.exe" download>
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+            下载
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 正式版 ===== -->
+    <div class="version-section">
+      <div class="section-label">
+        <span>✅ 正式版</span>
+        <span class="badge badge-stable">Stable</span>
+      </div>
+
+      <div class="version-list">
+        <div class="empty-hint">
+          正式版尚未发布，敬请期待
+        </div>
+      </div>
+    </div>
+
+    <!-- 源码按钮 -->
+    <a class="source-btn" href="https://github.com/yingMC1/Mokthyn-public" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.4.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.24a11.5 11.5 0 016 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.24 0 4.63-2.8 5.66-5.48 5.96.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0024 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+      查看源代码·给个⭐呗！
+    </a>
+
+    <!-- ---- 折叠：提交 Issue ---- -->
+    <div class="collapse-section" id="issuePanel">
+      <div class="collapse-header" onclick="togglePanel('issuePanel')">
+        <span class="title">💬 提交 Issue / 反馈</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="collapse-body">
+        <form class="issue-form" action="https://formspree.io/f/xwlvvbqv" method="POST">
+          <input type="text" name="title" placeholder="标题（简要描述问题或建议）" required />
+          <textarea name="body" placeholder="详细描述你遇到的问题、复现步骤或建议..." required></textarea>
+          <button type="submit" class="issue-submit">提交反馈</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ---- 折叠：提交贡献文献 ---- -->
+    <div class="collapse-section" id="contributePanel">
+      <div class="collapse-header" onclick="togglePanel('contributePanel')">
+        <span class="title">📄 提交贡献文献</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="collapse-body">
+        <p class="contribute-desc">
+          要求：玩过 Mokthyn，写过与 <strong>game.h</strong> 功能不同的 <strong>.h</strong> 文件。<br>
+          上传你的 .h 文件，并附上简要说明，作者会尽快审核。
+        </p>
+        <form class="issue-form" action="https://formspree.io/f/xwlvvbqv" method="POST" enctype="multipart/form-data">
+          <input type="text" name="author" placeholder="你的名字 / GitHub 用户名" required />
+          <input type="text" name="title" placeholder="文献标题（例如：新武器系统.h）" required />
+          <textarea name="description" placeholder="简要说明这个 .h 文件的功能和用途..." required></textarea>
+
+          <label class="file-upload">
+            <input type="file" name="attachment" accept=".h,.hpp,.zip,.rar" required onchange="showFileName(this)" />
+            <span class="icon">📎</span>
+            <span class="label">点击上传 .h 文件</span>
+            <span class="hint">支持 .h / .hpp / .zip / .rar，单个文件不超过 10MB</span>
+            <span class="file-name" id="fileName"></span>
+          </label>
+
+          <button type="submit" class="issue-submit">提交文献</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="author">开发者：yingMC1 · yingMC-1</span><br>
+      <a href="https://github.com/yingMC1/Mokthyn-public/blob/main/README.md" target="_blank">贡献指南</a> ·
+      <a href="mailto:Ying110189@outlook.com">Ying110189@outlook.com</a>
+    </div>
+  </div>
+
+  <script>
+    // 折叠面板切换
+    function togglePanel(id) {
+      const panel = document.getElementById(id);
+      panel.classList.toggle('open');
+    }
+
+    // 文件名显示
+    function showFileName(input) {
+      const nameEl = document.getElementById('fileName');
+      if (input.files && input.files.length > 0) {
+        nameEl.textContent = '已选择：' + input.files[0].name;
+      } else {
+        nameEl.textContent = '';
+      }
+    }
+  </script>
+</body>
+</html>
