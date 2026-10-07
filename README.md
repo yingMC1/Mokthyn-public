@@ -4,7 +4,9 @@
 
 ### 下载网
 
-[点击这里](https://fancy-unit-740c.ying110189.workers.dev)
+1. [点击这里](https://mokthyn-3xya338.maozi.io/)
+2. [点击这里](https://fancy-unit-740c.ying110189.workers.dev)
+3. [点击这里](mokthyn.dpdns.org)
 
 ### 简介
 
@@ -20,7 +22,7 @@
 
 上传 .h 前最好问一下我有么有这个功能。
 
-打开[下载网](https://fancy-unit-740c.ying110189.workers.dev)，贡献文献功能上传 .h 文件。
+打开下载网，贡献文献功能上传 .h 文件。
 
 要求：
 - 要玩过 Mokthyn。
