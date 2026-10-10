@@ -1,11 +1,16 @@
 # Mokthyn-public
 
+## yingMC工作室
+
+[工作室](https://mokthyn.rf.gd/)
+
 Mokthyn-public 是 [Mokthyn](https://github.com/yingMC1/Mokthyn) 的公开仓库（Mokthyn 本体为私有仓库）。
 
 ## 📥 下载
 
-1. [主下载站](https://mokthyn-3xya338.maozi.io/)（推荐，更新及时）
-2. [备用下载站](https://fancy-unit-740c.ying110189.workers.dev)（更新较慢）
+1. [主下载站]((https://mokthyn.rf.gd/Mokthyn.html)（推荐，更新及时）
+2. [主下载站](https://mokthyn-3xya338.maozi.io/)（推荐，更新及时）
+3. [备用下载站](https://fancy-unit-740c.ying110189.workers.dev)（更新较慢）
 
 ## 📖 简介
 
