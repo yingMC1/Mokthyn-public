@@ -1,4 +1,4 @@
-# Mokthyn-public
+[# Mokthyn-public
 
 ## yingMC工作室
 
@@ -9,8 +9,7 @@ Mokthyn-public 是 [Mokthyn](https://github.com/yingMC1/Mokthyn) 的公开仓库
 ## 📥 下载
 
 1. [主下载站]((https://mokthyn.rf.gd/Mokthyn.html)（推荐，更新及时）
-2. [主下载站](https://mokthyn-3xya338.maozi.io/)（推荐，更新及时）
-3. [备用下载站](https://fancy-unit-740c.ying110189.workers.dev)（更新较慢）
+2. [备用下载站](https://fancy-unit-740c.ying110189.workers.dev)（更新较慢）
 
 ## 📖 简介
 
@@ -49,3 +48,4 @@ Mokthyn（莫克廷）是一个「逃离雅科夫模式」的游戏，核心玩�
 ## 💬 联系与反馈
 
 欢迎通过 [GitHub Issues](https://github.com/yingMC1/Mokthyn-public/issues) 提交 Bug 报告、功能建议或参与讨论。
+](https://release-assets.githubusercontent.com/github-production-release-asset/1408112864/d3408c82-3739-4fc1-8081-ea396713d44a?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-10T09%3A01%3A11Z&rscd=attachment%3B+filename%3DMokthyn-0.0.1.exe&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-10T08%3A01%3A03Z&ske=2026-10-10T09%3A01%3A11Z&sks=b&skv=2018-11-09&sig=yjo1nvi%2BFfPpnyZdGNz5ShVf7tdm%2FP4pUfyaxvrU%2BW8%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MTYyMDUzOCwibmJmIjoxNzkxNjIwMjM4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.kjSMyzXihWdHxjovqZOAvaqyVgxFDI3lUvYXrsw9Vsk&response-content-disposition=attachment%3B%20filename%3DMokthyn-0.0.1.exe&response-content-type=application%2Foctet-stream)
